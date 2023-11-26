@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<html lang="en">
+<link rel="stylesheet" href="metronomestylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+
+	
+<title>About</title>
+</head>
+	
+	<div id="pagecontainer">
+
+	<div id="pageheader"><h1 id="pagetitle">Melody Maker</h1>
+	<div id="pageheader_links">
+	<div><a href="melodymaker.html">Melody Maker</a></div>
+	<div><a href="metronome.html">Metronome</a></div>
+	</div>
+	</div>
+
+<div class="body_container">
+<div class="about_container">
+<h2>About this project</h2>
+<h3>Outline</h3>
+<p>This project was made as part of the Open University's BSc Computing course, for the TM470 Computing And IT Project.
+The project was an exploration of accessible and useable creative applications, in response to the inconsistent implementation of 
+accessibility standards in web-based and standalone music creation tools.
+<br><br>
+This began with the creation of a programmable metronome which could support training mechanics: working towards playing at a
+higher tempo, training consistency in timekeeping, and learning smooth transitions between note subdivisions.
+It also attempted to make learning musical concepts easier for non-musicians, and to enable musicians to experiment with ideas
+quickly. This was achieved with a suite of synthesizer controllers, with support for automated transposition of melodies, 
+variable time signatures, and creation of complex chords without the need for instrument-specific knowledge of these processes.
+<br><br>
+This project utilises the Web Audio API via the Tone.JS framework, an object-oriented utilisation of vanilla JaveScript, HTML, and CSS. 
+The music theory implementation was built in JavaScript for this project.</p>
+<h3>Preliminary results</h3>
+The two modules created pass the WebAIM WAVE accessibility tests, other than an error related to a an intentionally hidden value. Zooming, variable font size,
+and both high- and low-contrast themes are supported. Keyboard navigation and screen readers are broadly supported, with some shortcomings stemming from design errors.
+<br>
+The metronome module is technically sound, with accurate timekeeping and support for variable measure lengths. The Melody Maker module includes a drum machine
+with multiple voices, an 8-note step sequencer automatically populated by a predefined scale, and automated chord construction. 
+<br><br>
+Due to shortcomings of the Tone.JS framework audio generation does not work in Safari, and under certain conditions audio quality decreases significantly after
+a period of time. Furthermore, the Melody Maker is limited to quarter notes in 4/4, and the chord builder currently cannot transpose chords between keys. 
+<h3>Preliminary conclusions</h3>
+<p>This project demonstrates, even in spite of some flawed design decisions, that complex creative interfaces can comply with web accessibility standards
+and not exclude users with most accessibility needs.
+</p>
+<p>
+</p>
+</div>
+</div>	
+<body>
+	
+	
+</div>
+</body>
+</html>
+
+
+<script src="http://unpkg.com/tone"></script>
+<script src="java.js"></script>
+<script src="metronome.js"></script>
+<script src="helperfunctions.js"></script>

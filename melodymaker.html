@@ -1,0 +1,212 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<html lang="en">
+<link rel="stylesheet" href="melodymakerstylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+<title>Melody Maker</title>
+</head>
+
+<body>
+
+<div id = "controlpanel_time" class="controlpanel_time">
+	<div><h2>Controls</h2>
+		<div><button id="melodymakerStartButton"onclick="drumandstep()">&#9658 Play</button></div>
+		<div id="bpm_inputbox"><label>BPM: <input id = "bpm" value="90" size="9" type="number" min="1" max="240"></input></label></div>
+		<div><button onclick="orchestrate_addMeasure()">Add a measure</button></div>
+		<div><button onclick="orchestrate_removeMeasure()">Remove a measure</button></div>
+		</div>
+</div>
+
+	<div id="pagecontainer">
+
+	<div id="pageheader"><h1 id="pagetitle">Melody Maker</h1>
+	<div id="pageheader_links">
+	<div><a href="metronome.html">Metronome</a></div>
+	<div><a href="about.html">About</a></div>
+	</div>
+	</div>
+	
+	
+	<div class="body_container">
+	
+	
+	<div id="infobox_hotkeys"><h2>Controls</h2>
+	<h3>Hotkeys</h3>
+	<p>"Alt + P" = Play/Pause<br>
+	"Alt + X" = Remove Measure<br>
+	"Alt + C" = Add Measure<br>
+	"Alt + M" = Focus on BPM selector<br>
+	"Alt + K" = Focus on the drum machine<br>
+	"Alt + L" = Focus on drum machine<br></p>
+	</div>
+	
+
+	<div id="infobox_caveat"><h2>Attention:</h2>
+	<p>This app is an exploratory work-in-progress and does not represent a final product.<br>
+	<h2>Known issues:</h2><ul>
+	<li>Audio generation currently does not work in Safari.</li>
+	<li>The input grids do not work well with screen readers and are difficult to tab navigate through.</li>
+	<li>Drum and step sequencer inputs do not update until the synthesizers are paused.</li>
+	<li>Audio quality may drop significantly over time. Work is ongoing to alleviate this.</li>
+	<li>Mobile support is not fully implemented yet.</li>
+	</ul></div>
+	
+
+	
+	<div id="drum_machine" class="inputtable">
+	<h2>Drum Looper</h2>
+
+	<table id="drum_machine_table">
+	<caption><h3>Drum input grid</h3></caption>
+	</table>
+	</div>
+
+	<div id="step_sequencer" class="inputtable">
+	<h2>Step Sequencer</h2>
+
+	<table id="step_sequencer_table">
+	<caption><h3>Melody input grid</h3></caption>
+	</table>
+
+	<div><h3>Step sequencer properties</h3>
+	<div>
+	<label>Octave: 
+		<select id="octaveinput">
+		<option value = 1>1</option>
+		<option value = 2>2</option>
+		<option value = 3 selected = "selected">3</option>
+		<option value = 4>4</option>
+		<option value = 5>5</option>
+		</select></label>
+
+		<label>Key: <select id="note">
+		<option value = "0">C</option>
+		<option value = "1">C#</option>
+		<option value = "2">D</option>
+		<option value = "3">D#</option>
+		<option value = "4">E</option>
+		<option value = "5">F</option>
+		<option value = "6">F#</option>
+		<option value = "7">G</option>
+		<option value = "8">G#</option>
+		<option value = "9">A</option>
+		<option value = "10">A#</option>
+		<option value = "11">B</option>
+		</select></label>
+		<label>Mode: <select id="scale">
+		<option value = "0">Major (Ionian)</option>
+		<option value = "1">Dorian</option>
+		<option value = "2">Phrygian</option>
+		<option value = "3">Lydian</option>
+		<option value = "4">Mixolydian</option>
+		<option value = "5">Minor (Aeolian)</option>
+		<option value = "6">Locrian</option>
+		</select></label>
+		</div>
+		<div>
+		<label>Synth wave shape: <select id="synth_waveshape">
+		<option>Triangle</option>
+		<option>Sine</option>
+		<option>Square</option>
+		<option>Sawtooth</option>
+		</select></label>
+		</div>
+	</div>
+	</div>
+
+
+	<div id="controlpanel_chord_builder" class="controlpanel_chord_builder">
+		<h2>Chord Builder</h2>
+		<h3>Chord properties</h3>
+			<div><label>Degree: <span id="info_degree"> &#9432 </span> <select id="chord_root">
+			<option value = "0">I</option>
+			<option value = "1">II</option>
+			<option value = "2">III</option>
+			<option value = "3">IV</option>
+			<option value = "4">V</option>
+			<option value = "5">VI</option>
+			<option value = "6">VII</option>
+			</select></label>
+			<label>Chord key: <select id="chord_root_note">
+			<option value = "0">C</option>
+			<option value = "1">C#</option>
+			<option value = "2">D</option>
+			<option value = "3">D#</option>
+			<option value = "4">E</option>
+			<option value = "5">F</option>
+			<option value = "6">F#</option>
+			<option value = "7">G</option>
+			<option value = "8">G#</option>
+			<option value = "9">A</option>
+			<option value = "10">A#</option>
+			<option value = "11">B</option>
+			</select></label>
+			</div>
+			<div><label>Extension: <select id="chord_extension">
+			<option value = "0">Triad</option>
+			<option value = "1">7th</option>
+			<option value = "2">9th</option>
+			</select></label>
+			<label>Length: <select id="chord_duration">
+			<option value="8n">Eighth</option>
+			<option value="4n">Quarter</option>
+			<option value="2n">Half</option>
+			<option value="1m">Whole</option>
+			</select></label>
+			</div>
+			<div>
+			<label>Measure: <select id="chord_measure"></select></label>
+			<label>Beat: <select id="chord_beat"></select></label>
+			<div>
+			<button onclick="testChord()">Test Chord</button>
+			<button onclick="addChord()">Add Chord</button>
+			</div>
+	
+			<div id="controlpanel_chord_effects">
+			<h3>Chord effects</h3>
+			<div><label>Chord wave shape: <select id="chord_waveshape">
+			<option>Triangle</option>
+			<option>Sine</option>
+		<option>Square</option>
+		<option>Sawtooth</option>
+		</select></label></div>
+		<div><label>Chord volume: -5db <input type="range" id="chord_volume" min=-6 max=6 value=0 step=0.5> +5db</label></div>
+	</div>
+</div>
+	
+	<div id="chord_table">
+	<h2>Chord Table</h2>
+	
+	<table id="chordtable">
+	<div id="chordtableheader"><tr>
+	<th>Chord Root</th>
+	<th>Duration</th>
+	<th>Extension</th>
+	<th>Measure</th>
+	<th>Beat</th>
+	<th>Remove</th>
+	</tr>
+	</table>
+</div>
+		
+</div>
+</div> <!-- Page container div closing tag -->
+
+<!-- While creating the interface controls for alternate time signatures broke. This is a placeholder to make 4/4 work.-->
+<input id="numeratorinput" type="number" value="4" style="display: none" label="hiddenplaceholder"></input>
+
+
+</body>
+</html>
+
+
+<!-- SCRIPTS -->
+
+<script src="http://unpkg.com/tone"></script>
+<script src="melodymaker_helperfunctions.js"></script>
+<script src="melodymakerstepsequencer.js"></script>
+<script src="melodymakerdrums.js"></script>
+<script src="melodymaker.js"></script>
+<script src="chordlooper.js"></script>
+

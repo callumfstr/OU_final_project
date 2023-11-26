@@ -1,0 +1,240 @@
+/*----------COLOUR PALETTE----------*/
+	:root {
+  color-scheme: light dark;
+	}
+	
+   /* DARK THEME COLOUR PALETTE */
+ 
+ @media (prefers-color-scheme: dark){
+	 
+  :root{
+  --body-background-color: #424242;
+  --main-background-color: #2b2823;
+  --box-background-color: #170f02;
+  
+  --alt-box-border-color: #a6e22e;
+  --box-border-color: white;
+  
+  
+  /* Fonts */  
+  
+  --h1-color: #FFA500;
+  --h2-color: #FFA500;
+  --h3-color: #FFC65D;
+  --label-color: #DBDBDB;
+  --text-color: #DBDBDB;
+  
+  --accent-color: #FFC65D;  
+  
+  
+  }
+  a:link {color:#B2D4F5;}
+  a:visited {color:#D9BDD9;}
+  
+  
+  
+  }
+  
+   /* LIGHT THEME COLOUR PALETTE */
+   
+ @media (prefers-color-scheme: light){
+  
+  :root{
+  --body-background-color: #c9d5e3;
+  --main-background-color: #FFFFFF;
+  --box-background-color: #FFFFFF;
+  
+  --alt-box-border-color: #DBDBD;
+  --box-border-color: #DBDBD;
+  
+  
+  /* Fonts */
+  --h1-color: #2011a2;
+  --h2-color: #2011a2;
+  --h3-color: #201148;
+  --label-color: #201148;
+  --text-color: #201148;
+  
+  /* Other */
+  --accent-color: #FFC65D;  
+  
+  }
+ }
+	
+	body{
+		background-color: var(--body-background-color);
+		font-family: "Varela Round";
+	}
+	
+	label, th, td{color: var( --text-color);}
+	h1, h2{color: var(--h1-color);}
+	h3{color: var(--h3-color);}
+	p{color: var(--text-color);}
+	li{color: var(--text-color);}
+	
+	a:hover{font-weight: 700;}
+	
+
+
+/*----------PAGE CONTAINERS----------*/
+
+/*Header*/
+#pageheader{
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+	
+	padding-left: 5%;
+	padding-right: 5%;
+	
+	background-color: var(--main-background-color);
+	border-bottom:  solid 3px;
+	border-color: var(--accent-color);
+}
+
+#pageheader div {margin-top:auto; margin-bottom: auto;}
+
+#pagetitle{
+	padding-right: 1em;
+	border-right: solid 3px;
+	border-color: var(--accent-color);
+}
+
+.about_container{
+	padding-left: 2em;
+	padding-right: 2em;
+	margin:auto;
+}
+
+#pageheader h1{
+margin-left: 1em;
+}
+
+#pageheader_links{
+		display: flex;
+		flex-direction: row;
+		gap: 1em;
+	}
+
+/*Body*/
+ #pagecontainer {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 0;
+	padding-left: 2%;
+	padding-right: 2%;
+	}
+	
+.body_container{
+	padding-bottom: 12em;
+	padding-top: 2em;
+	flex-grow: 4;
+	background-color: var(--main-background-color);
+	overflow-x: auto;
+}
+
+#programmable_boxes
+{
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+#programmable_boxes, #metronome
+{	
+	width: 90%;
+	margin: auto;
+}
+
+/*Boxes*/
+#bpmdisplay {
+	margin: auto;
+}
+
+.emphasis_checkbox, .subdivision_checkox{
+	height: 2em;
+	width: 2em;
+}
+
+#metronomebuttons {
+	position: center;
+}
+
+#numerator, #measuresToPlay, #measuresToMute, #altTempoIncrement, #altMeasures, #altTempoFinish, #pyrRepeats
+{
+	width: 3em;
+}
+
+
+
+#startbutton, #tap {
+	margin-top: 5%;
+	font-size: large;
+}
+
+#stopbutton {
+	margin-top: 5%;
+	font-size: large;
+}
+
+.flex-container {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+
+
+#bpmflexbox {
+	padding: .5em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+body {
+	background-color: var(--body-background-color);
+}
+
+#metronome {
+	display: flex;
+	flex-direction: column;
+	
+	width: 90%;
+	margin-right: auto; 
+	margin-left: auto;
+	
+	border: 1px solid;
+	border-radius: 5px;
+	border-color: var(--box-border-color);
+	padding: 0em 2em 2em 1em;
+	
+}
+
+#altmetronome, #tempometronome, #subdivisionpyramid{
+	border: 1px solid;
+	border-radius: 5px;
+	padding: 0em 2em 2em 1em;
+	
+	display: inline-grid;
+	border-color: var(--box-border-color);
+}
+
+h1 {color: var(--h1-color);}
+h2 {color: var(--h2-color);}
+label, p, a {color: var(--label-color);}
+
+#bpm {
+	font-size: 5em;
+	width: 1.8em;
+	-moz-appearance: textfield;
+	-appearance: textfield;
+}
+
+#subdivision_holder{
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	margin-right: auto;
+}
+

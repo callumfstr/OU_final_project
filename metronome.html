@@ -1,0 +1,102 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<html lang="en">
+<link rel="stylesheet" href="metronomestylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+
+	
+<title>Metronome</title>
+</head>
+
+<body>
+	
+	
+	<div id="pagecontainer">
+
+	<div id="pageheader"><h1 id="pagetitle">Melody Maker</h1>
+	<div id="pageheader_links">
+	<div><a href="melodymaker.html">Melody Maker</a></div>
+	<div><a href="about.html">About</a></div>
+	</div>
+	</div>
+		
+		
+		<div class="body_container">
+		<!-- METRONOME -->
+		
+		<div id="metronome">
+		<h1>Metronome</h1>
+		
+		<!--BPM Input and corresponding buttons -->
+		<div class="flex-container" id="bpmdisplay">
+			<div><button onclick="incrementalTempo(-5)" id ="incrementalbutton" value="-5">-5</button>
+			<button onclick="incrementalTempo(-1)" id ="incrementalbutton" value="-1">-1</button></div>
+		
+			<div id="bpmflexbox" class="flex-container"><label><input id = "bpm" value="90"  type="number"><br><strong> BPM</strong></label>
+			</input></div>
+		
+			<div><button onclick="incrementalTempo(1)" id ="incrementalbutton" value="1">+1</button>
+			<button onclick="incrementalTempo(5)" id ="incrementalbutton" value="5">+5</button></div>
+		</div>
+		<div>
+		<span id="metronomebuttons"><button onclick="metronome()" id="startbutton">START</button>
+		<button onclick="tapTempo(); tapTimer();" id="tap">TAP TEMPO</button></span>
+		<div><label>Beats in measure:  <input id="numeratorinput" type="number" size="3" min="1" max="12" value="4"></label></div>
+		<div><label>Beats to emphasise: <span class="flex-container" id="emphasisboxes"></label></span></div>
+		</div>
+		</div>
+		
+		
+		<div id="programmable_boxes">
+		<h1>Programmable features</h1>
+		
+		<!--ALTERNATING MEASURE METRONOME-->
+		<div id="altmetronome">
+		<h2>Alternating measures</h2>
+		<span><label>Play the metronome for <input id="measuresToPlay" value = "1" type = "number"></input></label></span>
+		<span><label> bars, then mute for <input id ="measuresToMute" value="1" type = "number" size="3"> </input></label></span>
+		<div><button onclick ="altMetronome()" id="altstartbutton">Begin Exercise</button></div>
+		</div>		
+		
+		<!--ALTERNATING TEMPO METRONOME-->		
+		<div id="tempometronome">
+		<h2>Increasing tempo</h2>
+		<span><label>Increase tempo by <input id ="altTempoIncrement" value="10" type = "number" size="4"></label></input> BPM</span>
+		<span><label> every <input id ="altMeasures" value ="2" type = "number" size="3"></label> measures,</span><span>
+		 until reaching <label<input id ="altTempoFinish" value ="120" type ="number" size="5"> bpm</label>
+		<br><br>
+		<button onclick="altTempoMetronome()" id="alttempostartbutton">Begin Exercise</button></span>
+		</div>
+	
+		
+				<!--SUBDIVISION PYRAMID-->
+		<div id="subdivisionpyramid">
+			<h2>Subdivision pyramid</h2>
+			<span><label>Repeat each subdivision <input type = "number" id = "pyrRepeats" value = "4"></label> times</span><br>
+			Included subdivisions:
+			<div id="subdivision_holder">
+			<div><span><label>Singles: <input type="checkbox" class="subdivision_checkox" id="pyr0" value=""></label></span></div>
+			<div><span><label>Half Note / Tuplets: <input type="checkbox" class="subdivision_checkox"  id="pyr1" value=""></label></span></div>
+			<div><span><label>Triplets: <input type="checkbox" class="subdivision_checkox"  id="pyr2" value=""></label></span></div>
+			<div><span><label>Quarter Note / Quadruplets <input type="checkbox" class="subdivision_checkox"  id="pyr3" value=""></label></span></div>
+			<div><span><label>Quintuplets: <input type="checkbox" class="subdivision_checkox"  id="pyr4" value=""></label></span></div>
+			<div><span><label>Sextuplets: <input type="checkbox" class="subdivision_checkox"  id="pyr5" value=""></label></span></div>
+			<div><span><label>Septuplets: <input type="checkbox" class="subdivision_checkox"  id="pyr6" value=""></label></span></div>
+			<div><span><label>Eighth Note / Octuplets: <input type="checkbox" class="subdivision_checkox"  id="pyr7" value=""></label></span></div>
+			</div>
+			<div><button onclick="subPyramid()" id="subdivisionstartbutton">Begin Exercise</button></div>
+		</div>
+		
+		</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+
+<script src="http://unpkg.com/tone"></script>
+<script src="java.js"></script>
+<script src="metronome.js"></script>
+<script src="metronome_helperfunctions.js"></script>
